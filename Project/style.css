@@ -17,20 +17,31 @@
     border-radius: 50%;
 }
 .quote-display {
-    margin-bottom: 1rem;
-    margin-left: calc(1rem + 2px);
-    margin-right: calc(1rem + 2px);
-  }
+  margin-bottom: 1rem;
+  margin-left: calc(1rem + 2px);
+  margin-right: calc(1rem + 2px);
+}
+
+#inputDiv{
+  margin: auto;
+}
+
+.quote-input {
+  width: 600px;
+  height: 2.5rem;
+  font-size: 2.5rem;
+  resize: none;
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
   
-  .quote-input {
+.correct {
+  color: green;
+}
   
-  }
-  
-  .correct {
-    color: green;
-  }
-  
-  .incorrect {
-    color: red;
-    text-decoration: underline;
-  }
+.incorrect {
+  color: red;
+  text-decoration: underline;
+}
