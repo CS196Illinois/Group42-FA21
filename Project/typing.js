@@ -1,16 +1,27 @@
-const API_URL = "https://random-word-api.herokuapp.com/word"
+const API_URL = "https://random-word-api.herokuapp.com/word?number=10"
 const quoteDisplayElement = document.getElementById('quoteDisplay')
 const quoteInputElement = document.getElementById('quoteInput')
 
+var wordQueue = []
+var queueCounter = 0;
 
 function getRandomWord() {
     return fetch(API_URL)
   .then(response => response.json())
-  .then(data => data[0])
 }
 
 async function getNewWord() {
-    const quote = await getRandomWord()
+    var quote
+    console.log(queueCounter)
+    if (queueCounter >= (wordQueue.length - 3)) {
+        wordQueue = await getRandomWord()
+        queueCounter = 0
+        quote = wordQueue[queueCounter]
+        queueCounter++
+    } else {
+        quote = wordQueue[queueCounter]
+        queueCounter++
+    }
     quoteDisplayElement.innerHTML = ''
     quote.split('').forEach(character => {
         const characterSpan = document.createElement('span')
