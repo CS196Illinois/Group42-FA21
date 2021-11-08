@@ -45,3 +45,11 @@
   color: red;
   text-decoration: underline;
 }
+#monster{
+  width: 10px;
+  height: 10px;
+  background-color: black;
+  position: absolute;
+  top: 100px;
+  border-radius: 50%;
+}
