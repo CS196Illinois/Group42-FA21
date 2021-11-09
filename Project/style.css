@@ -48,8 +48,9 @@
 #monster{
   width: 10px;
   height: 10px;
-  background-color: black;
+  right: 0px;
+  background-color: red;
   position: absolute;
-  top: 100px;
+  top: 0px;
   border-radius: 50%;
 }
