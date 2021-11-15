@@ -9,5 +9,5 @@ var maze = [
     [1,0,0,1,0,1,0,1],
     [1,1,1,1,1,1,1,1]
 ]
-var playerCords = [0,3]
+var playerCords = [3,0]
 var playerDirection = 4 // NWSE is 1234 respectivly
