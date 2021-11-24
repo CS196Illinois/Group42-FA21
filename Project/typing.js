@@ -4,9 +4,31 @@ const quoteDisplayElementW = document.getElementById('quoteDisplayW')
 const quoteDisplayElementS = document.getElementById('quoteDisplayS')
 const quoteDisplayElementE = document.getElementById('quoteDisplayE')
 const quoteInputElement = document.getElementById('quoteInput')
+const mazeCanvas = document.getElementById('maze')
 
 var wordQueue = []
 var queueCounter = 0;
+
+function drawMaze() {
+    var width = mazeCanvas.width / maze.length
+    var height = mazeCanvas.height / maze[0].length
+    if (mazeCanvas.getContext) {
+        var ctx = mazeCanvas.getContext('2d');
+        for (var x = 0; x < maze.length; x++) {
+            for (var y = 0; y < maze[0].length; y++) {
+                console.log("X: " + x + " Y: " + y + " Width: " + width + " Height: " + height)
+                ctx.fillStyle = 'white'
+                if (maze[x][y] == 1) {
+                    ctx.fillStyle = 'black'
+                }
+                if (x == playerCords[0] && y == playerCords[1]) {
+                    ctx.fillStyle = 'orange'
+                }
+                ctx.fillRect(y * height, x * width , height, width)
+            }
+        }
+    }
+}
 
 function getRandomWord() {
     return fetch(API_URL)
@@ -43,6 +65,7 @@ function updateMap(direction){
         maze[playerCords[0]][playerCords[1]] = 2
         maze[temp[0]][temp[1]] = 0
     }
+    drawMaze()
     return changed
 }
 

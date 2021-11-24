@@ -3,10 +3,15 @@
     margin: 0;
 }
 #game{
-    width: 600px;
-    height: 600px;
+    width: 700px;
+    height: 700px;
     border: 1px solid black;
     margin: auto;
+}
+#maze{
+  border: 1px solid black;
+  display: block;
+  margin: auto;
 }
 #gamepad{
   margin: auto;
@@ -30,7 +35,7 @@
 }
 
 .quote-input {
-  width: 600px;
+  width: 700px;
   height: 2.5rem;
   font-size: 2.5rem;
   resize: none;
