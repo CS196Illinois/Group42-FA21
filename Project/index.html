@@ -6,22 +6,26 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <div id="titleBar">
-            
-        </div>
-        <div id="game">
-            <div class="grid-container" id="gamepad">
-                <div class="quote-display quote-Display-N" id="quoteDisplayN"></div>
-                <div class="quote-display quote-Display-W" id="quoteDisplayW"></div>
-                <div class="quote-display quote-Display-S" id="quoteDisplayS"></div>
-                <div class="quote-display quote-Display-E" id="quoteDisplayE"></div>
+        <div class="main">
+            <div class="main__container">
+                <div id="titleBar">
+                </div>
+                <div id="game">
+                    <h1>Amazing Gamers</h1>
+                    <li class="game__item">
+                        <a href="/" class="game__links">
+                        How to Play
+                        </a>
+                    </li>
+                    <li class="game__btn">
+                        <a href="http://127.0.0.1:5501/Project/start.html" class="button">
+                        Start
+                        </a>
+                    </li>
+                    
+                </div>
             </div>
-            <canvas id="maze" width="500" height="500"></canvas>
-        </div>
-        <div id="inputDiv">
-            <textarea id="quoteInput" class="quote-input" autofocus></textarea>
         </div>
     </body>
     <script src="script.js"></script>
-    <script src="typing.js"></script>
 </html>

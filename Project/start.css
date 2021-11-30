@@ -1,0 +1,86 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+#game{
+    width: 700px;
+    height: 700px;
+    border: 1px solid black;
+    margin: auto;
+}
+#maze{
+  border: 1px solid black;
+  display: block;
+  margin: auto;
+}
+#gamepad{
+  margin: auto;
+}
+#character{
+    width: 10px;
+    height: 10px;
+    background-color: black;
+    position: absolute;
+    top: 100px;
+    border-radius: 50%;
+}
+.quote-display {
+  margin-bottom: 1rem;
+  margin-left: calc(1rem + 2px);
+  margin-right: calc(1rem + 2px);
+}
+
+#inputDiv{
+  margin: auto;
+}
+
+.quote-input {
+  width: 700px;
+  height: 2.5rem;
+  font-size: 2.5rem;
+  resize: none;
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+  
+.correct {
+  color: green;
+}
+  
+.incorrect {
+  color: red;
+  text-decoration: underline;
+}
+
+.grid-container {
+  display: grid;
+  width: fit-content;
+  height: fit-content;
+}
+
+.quote-Display-N {
+  grid-row-start: 1;
+  grid-row-end: 2;
+  grid-column-start: 2;
+  grid-column-end: 3;
+}
+.quote-Display-W {
+  grid-row-start: 2;
+  grid-row-end: 3;
+  grid-column-start: 1;
+  grid-column-end: 2;
+}
+.quote-Display-S {
+  grid-row-start: 3;
+  grid-row-end: 4;
+  grid-column-start: 2;
+  grid-column-end: 3;
+}
+.quote-Display-E {
+  grid-row-start: 2;
+  grid-row-end: 3;
+  grid-column-start: 3;
+  grid-column-end: 4;
+}
