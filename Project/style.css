@@ -3,10 +3,18 @@
     margin: 0;
 }
 #game{
-    width: 600px;
-    height: 600px;
+    width: 700px;
+    height: 700px;
     border: 1px solid black;
     margin: auto;
+}
+#maze{
+  border: 1px solid black;
+  display: block;
+  margin: auto;
+}
+#gamepad{
+  margin: auto;
 }
 #character{
     width: 10px;
@@ -27,7 +35,7 @@
 }
 
 .quote-input {
-  width: 600px;
+  width: 700px;
   height: 2.5rem;
   font-size: 2.5rem;
   resize: none;
@@ -44,6 +52,37 @@
 .incorrect {
   color: red;
   text-decoration: underline;
+}
+
+.grid-container {
+  display: grid;
+  width: fit-content;
+  height: fit-content;
+}
+
+.quote-Display-N {
+  grid-row-start: 1;
+  grid-row-end: 2;
+  grid-column-start: 2;
+  grid-column-end: 3;
+}
+.quote-Display-W {
+  grid-row-start: 2;
+  grid-row-end: 3;
+  grid-column-start: 1;
+  grid-column-end: 2;
+}
+.quote-Display-S {
+  grid-row-start: 3;
+  grid-row-end: 4;
+  grid-column-start: 2;
+  grid-column-end: 3;
+}
+.quote-Display-E {
+  grid-row-start: 2;
+  grid-row-end: 3;
+  grid-column-start: 3;
+  grid-column-end: 4;
 }
 #monster{
   width: 10px;
