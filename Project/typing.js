@@ -9,6 +9,10 @@ const mazeCanvas = document.getElementById('maze')
 var wordQueue = []
 var queueCounter = 0;
 
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+}
+
 function drawMaze() {
     var width = mazeCanvas.width / maze.length
     var height = mazeCanvas.height / maze[0].length
@@ -16,13 +20,16 @@ function drawMaze() {
         var ctx = mazeCanvas.getContext('2d');
         for (var x = 0; x < maze.length; x++) {
             for (var y = 0; y < maze[0].length; y++) {
-                console.log("X: " + x + " Y: " + y + " Width: " + width + " Height: " + height)
+                // console.log("X: " + x + " Y: " + y + " Width: " + width + " Height: " + height)
                 ctx.fillStyle = 'white'
                 if (maze[x][y] == 1) {
                     ctx.fillStyle = 'black'
                 }
                 if (x == playerCords[0] && y == playerCords[1]) {
-                    ctx.fillStyle = 'orange'
+                    ctx.fillStyle = 'green'
+                }
+                if (x == monsterCords[0] && y == monsterCords[1]) {
+                    ctx.fillStyle = 'red'
                 }
                 ctx.fillRect(y * height, x * width , height, width)
             }
@@ -35,7 +42,20 @@ function getRandomWord() {
   .then(response => response.json())
 }
 
-function checkGameConditons() {}
+function checkGameConditons() {
+    if (playerCords[0] === monsterCords[0] && playerCords[1] === monsterCords[1]) {
+        alert("Game Over, you lost")
+        restartGame()
+    } else if (playerCords[0] === endCoords[0] && playerCords[1] === endCoords[1]) {
+        alert("You Won! Game Over")
+        restartGame()
+    }
+}
+
+function restartGame() {
+    playerCords = startCoords
+    monsterCords = monsterStartCords
+}
 
 function updateMap(direction){
     var changed = false
@@ -62,9 +82,44 @@ function updateMap(direction){
         }
     }
     if (changed) {
-        maze[playerCords[0]][playerCords[1]] = 2
-        maze[temp[0]][temp[1]] = 0
+        //maze[playerCords[0]][playerCords[1]] = 2
+        //maze[temp[0]][temp[1]] = 0
     }
+    checkGameConditons()
+    drawMaze()
+    return changed
+}
+
+function updateMapMonster(direction){
+    var changed = false
+    var temp = monsterCords
+    if (direction == 1) {
+        if ((monsterCords[0] - 1) >= 0 && maze[monsterCords[0] - 1][monsterCords[1]] == 0) {
+            monsterCords = [monsterCords[0] - 1, monsterCords[1]]
+            changed = true
+        }
+    } else if (direction == 2) {
+        if ((monsterCords[1] - 1) >= 0 && maze[monsterCords[0]][monsterCords[1] - 1] == 0) {
+            monsterCords = [monsterCords[0], monsterCords[1] - 1]
+            changed = true
+        }
+    } else if (direction == 3) {
+        if ((monsterCords[0] + 1) >= 0 && maze[monsterCords[0] + 1][monsterCords[1]] == 0) {
+            monsterCords = [monsterCords[0] + 1, monsterCords[1]]
+            changed = true
+        }
+    } else if (direction == 4) {
+        if ((monsterCords[1] + 1) >= 0 && maze[monsterCords[0]][monsterCords[1] + 1] == 0) {
+            monsterCords = [monsterCords[0], monsterCords[1] + 1]
+            changed = true
+        }
+    }
+    if (changed) {
+        //maze[playerCords[0]][playerCords[1]] = 2
+        //maze[monsterCords[0]][monsterCords[1]] = 3
+        //maze[temp[0]][temp[1]] = 0
+    }
+    checkGameConditons()
     drawMaze()
     return changed
 }
@@ -74,7 +129,7 @@ function printMap() {
 }
 
 async function getNewWord() {
-    printMap()
+    //printMap()
     var quoteN
     var quoteW
     var quoteS
@@ -209,3 +264,6 @@ quoteInputElement.addEventListener('input', () => {
 
 updateMap(2)
 getNewWord()
+var myTimer = window.setInterval( function() {
+    updateMapMonster(getRandomInt(4) + 1);
+  }, 250)
