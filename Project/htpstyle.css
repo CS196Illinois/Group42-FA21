@@ -1,0 +1,88 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+#instructions{
+    width: 600px;
+    height: 600px;
+    border: 1px solid black;
+    background-color: aqua;
+    font-size: xx-large;
+    margin: auto;
+}
+
+.instructions__steps {
+    font-size: x-small;
+    font-style: normal;
+}
+
+.instructions__btn {
+  font-size: x-large;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1 rem;
+  width: 100%;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  padding: 10px 20px;
+  height: 100%;
+  width: 100%;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  background: rgb(6, 149, 245);
+  color: indigo;
+}
+
+.button:hover {
+  background: lightgreen;
+  transition: all 0.3s ease;
+}
+
+#character{
+    width: 10px;
+    height: 10px;
+    background-color: black;
+    position: absolute;
+    top: 100px;
+    border-radius: 50%;
+}
+.quote-display {
+  margin-bottom: 1rem;
+  margin-left: calc(1rem + 2px);
+  margin-right: calc(1rem + 2px);
+}
+
+#inputDiv{
+  margin: auto;
+}
+
+.quote-input {
+  width: 600px;
+  height: 2.5rem;
+  font-size: 2.5rem;
+  resize: none;
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+  
+.correct {
+  color: green;
+}
+  
+.incorrect {
+  color: red;
+  text-decoration: underline;
+}
+
+.main {
+  background-color: rgb(0, 0, 0);
+}
